@@ -28,26 +28,26 @@ public class PlayerMap {
             aura[x][y] = 0;
 
             try {
-                addInArray(aura, x - 1, y); //по бокам
-                addInArray(aura, x + 1, y);
+                addInArray(x - 1, y); //по бокам
+                addInArray(x + 1, y);
 
-                addInArray(aura, x, y + 1);
-                addInArray(aura, x, y - 1);
+                addInArray(x, y + 1);
+                addInArray(x, y - 1);
 
-                addInArray(aura, x - 1, y - 1); //по диагонали
-                addInArray(aura, x + 1, y - 1);
+                addInArray(x - 1, y - 1); //по диагонали
+                addInArray(x + 1, y - 1);
 
-                addInArray(aura, x + 1, y + 1);
-                addInArray(aura, x - 1, y + 1);
+                addInArray(x + 1, y + 1);
+                addInArray(x - 1, y + 1);
 
             } catch (ArrayIndexOutOfBoundsException e){};
 
         }
     }
 
-    public static void addInArray(int[][] array, int x, int y){
+    public void addInArray(int x, int y){
         try {
-            array[x][y] = 1;
+            aura[x][y] = 1;
         } catch (ArrayIndexOutOfBoundsException e){};
     }
 
@@ -67,12 +67,11 @@ public class PlayerMap {
             String[][] crds = map.getMap();
             if(auraCheck){
                 int[][] aura = map.getAura();
-
-                for(int j = 0; j < aura.length; j++){
                     try {
-                        if(aura[x][y] == 1) return false;
+                        System.out.println(x + " " + y);
+                        System.out.println(aura[x - 1][y - 1]);
+                        if(aura[x - 1][y - 1] == 1) return false;
                     } catch (ArrayIndexOutOfBoundsException e){}
-                }
             }
             if(!crds[x - 1][y - 1].equals("\uD83D\uDFE5")) return false;
         }
