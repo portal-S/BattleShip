@@ -68,8 +68,6 @@ public class PlayerMap {
             if(auraCheck){
                 int[][] aura = map.getAura();
                     try {
-                        System.out.println(x + " " + y);
-                        System.out.println(aura[x - 1][y - 1]);
                         if(aura[x - 1][y - 1] == 1) return false;
                     } catch (ArrayIndexOutOfBoundsException e){}
             }
